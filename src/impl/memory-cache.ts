@@ -16,8 +16,11 @@ export class MemoryCache implements Cache {
     this.cache.delete(key);
   }
 
-  get<T>(key: string): T {
-    return this.cache.get(key) as T;
+  get<T>(key: string): T | null {
+    if (!this.cache.has(key)) {
+      return null;
+    }
+    return this.cache.get(key);
   }
 
   put<T>(key: string, value: T): void {

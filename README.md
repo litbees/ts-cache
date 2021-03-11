@@ -220,7 +220,7 @@ export interface Cache {
   /**
    * Return the value to which this cache maps the specified key
    */
-  get<T>(key: string): T;
+  get<T>(key: string): T | null;
 
   /**
    * Associate the specified value with the specified key in this cache.
